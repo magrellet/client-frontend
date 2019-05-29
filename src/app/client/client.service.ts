@@ -4,6 +4,8 @@ import { CLIENTS } from './clients.json';
 import { Client } from './client.js';
 import { Observable } from 'rxjs';
 import { of } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs/operators';
 
 
 @Injectable({
@@ -11,9 +13,12 @@ import { of } from 'rxjs';
 })
 export class ClientService {
 
-  constructor() { }
+  private urlEndpoint: string = 'http://localhost:8080/api/clients';
+  constructor(private http: HttpClient) { }
 
   getClients(): Observable<Client[]> {
-    return of(CLIENTS);
+    return this.http.get(this.urlEndpoint).pipe(
+      map((response) => response as Client[])
+    );
   }
 }
