@@ -1,11 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-    selector: 'app-footer',
-    templateUrl: './footer.component.html',
-    styleUrls: ['./footer.component.css']
+  selector: 'app-footer',
+  templateUrl: './footer.component.html',
+  styleUrls: ['./footer.component.scss']
 })
-export class FooterComponent {
-    author: any = { name: 'Martin', lastName: 'Grellet' }
+export class FooterComponent implements OnInit {
+  author: any = { name: 'Martin', lastName: 'Grellet' };
+
+  constructor() { }
+
+  ngOnInit() {
+  }
 
 }

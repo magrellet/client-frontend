@@ -1,42 +1,28 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { DirectiveComponent } from './directive/directive.component';
 import { ClientComponent } from './client/client.component';
-import { ClientService } from './client/client.service';
-import { RouterModule, Routes, RoutesRecognized } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
-
-const router: Routes = [
-  {
-    path: '', redirectTo: '/clients', pathMatch: 'full'
-  }, {
-    path: 'directives', component: DirectiveComponent
-  }, {
-    path: 'clients', component: ClientComponent
-  }
-
-];
+import { DirectiveComponent } from './directive/directive.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    DirectiveComponent,
-    ClientComponent
+    ClientComponent,
+    DirectiveComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    RouterModule.forRoot(router)
+    AppRoutingModule
   ],
-  providers: [
-    ClientService
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

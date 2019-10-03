@@ -1,19 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 
 @Component({
-  selector: 'app-directive',
-  templateUrl: './directive.component.html',
+  selector: "app-directive",
+  templateUrl: "./directive.component.html"
 })
-export class DirectiveComponent {
-
-  courseList: string[] = ['Typescript', 'JavaScript', 'Java', 'C#', 'PHP'];
+export class DirectiveComponent implements OnInit {
+  courseList: string[] = ["Typescript", "JavaScript", "Java", "C#", "PHP"];
 
   enable: boolean = true;
 
-  constructor() { }
+  constructor() {}
 
   setVisibility(): void {
-    this.enable = (this.enable === true) ? false : true;
+    this.enable = this.enable === true ? false : true;
   }
 
+  ngOnInit() {}
 }
